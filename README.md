@@ -20,7 +20,7 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
 
     ````
     export SYSROOT=${NDK}/platforms/android-14/arch-arm
-    export CC=”$NDK/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc --sysroot=$SYSROOT”
+    export CC="$NDK/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc --sysroot=$SYSROOT"
     ````
 1. Run configuration with android toolchain.
  
@@ -44,3 +44,22 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
         i.e.,`LOCAL_C_INCLUDES += $(LOCAL_PATH)/include/ $(LOCAL_PATH)/lib`.
     1. Change last line `include $(BUILD_EXECUTABLE)` to `include $(BUILD_SHARED_LIBRARY)`
 
+### libxml2
+1. Install tools for building libxml2
+
+    ````
+    sudo apt-get install autoconf libtool
+    ````
+1. Set two environment variable **SYSROOT** and **CC**.
+
+    ````
+    export SYSROOT=${NDK}/platforms/android-14/arch-arm
+    export CC="$NDK/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc --sysroot=$SYSROOT"
+    ````
+1. Configure with Android toolchain
+    
+    ````
+    ./autogen.sh
+    ./configure --with-sysroot=$SYSROOT --host=arm
+    ````
+1. Copy files from **${LIBXML2_SOURCE}** to **${libdash_project}/jni/libxml2**
