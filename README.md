@@ -9,8 +9,8 @@ libdash is used libcurl and libxml2 for its dependent library, so we need to por
 
 ## Download Source Code
 * libcurl download from [here](http://curl.haxx.se/download.html).
-* libxml2 download from [here]().
-* libdash download from [here]().
+* libxml2 download by git `git clone git://git.gnome.org/libxml2`.
+* libdash download by git `git clone git://github.com/bitmovin/libdash.git`.
 
 First, we create android project by Eclipse (Ex: **${libdash_project}**).
 Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
