@@ -93,5 +93,5 @@ There are the some files under **${LIBDASH_SOURCE}/libdash/qtsampleplayer**, suc
     After building, you will get the libdash.so.
     
 ### Examples for libcurl (Optional)
-I create a folder for testing, called **app**. After building, you will get two shared libraries (i.e., .so file), libdash.so and libapp.so.
+I create a folder for testing, called **app**. After building, you will get two shared libraries (i.e., .so file), `libdash.so` and `libapp.so`.
 Reference to **${libdash_project}/jni/app/libdash_networkpart_test.cpp**
