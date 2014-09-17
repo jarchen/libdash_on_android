@@ -36,7 +36,7 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
     cp -r ${LIBCURL_SOURCE}/include ${libdash_project}/jni/libcurl/
     ````
 1. Copy **${LIBCURL_SOURCE}/packages/Android/Android.mk** to **${libdash_project}/jni/libcurl/**
-1. Modify **${libdash_project}/jni/libcurl/Android.mk**
+1. Modify **${libdash_project}/jni/libcurl/[Android.mk](./libdash/jni/libcurl/Android.mk)**
     1. Set `LOCAL_PATH := $(call my-dir)` (line 52).
     1. Change `LOCAL_MODULE` (line 79) and `LOCAL_STATIC_LIBRARIES` (line 102) from `libcurl` to other name (Ex: `curl-library`).
     1. Add **$(LOCAL_PATH)/lib** to `LOCAL_C_INCLUDES` (line 73),
@@ -67,7 +67,7 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
     ````
     find . -maxdepth 1 -name "*.[c|h]" -exec cp {} ${libdash_project}/jni/libxml2/ \;
     ````
-1. Create Android.mk for libxml2 under **${libdash_project}/jni/libxml2/**. This makefile very simple, just include all .c and .h files and build for **STATIC_LIBRARY**.
+1. Create [Android.mk](./libdash/jni/libxml2/Android.mk) for libxml2 under **${libdash_project}/jni/libxml2/**. This makefile very simple, just include all `*.c` and `*.h` files and build for **STATIC_LIBRARY**.
 
 ### libdash
 1. Copy files into **${libdash_project}/jni/libdash/**
@@ -76,14 +76,14 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
     cp -r ${LIBDASH_SOURCE}/libdash/libdash/include ${libdash_project}/jni/libdash/
     cp -r ${LIBDASH_SOURCE}/libdash/libdash/source ${libdash_project}/jni/libdash/
     ````
-1. Create Android.mk for libdash under **${libdash_project}/jni/libdash/**. 
+1. Create [Android.mk](./libdash/jni/libdash/Android.mk) for libdash under **${libdash_project}/jni/libdash/**. This Android.mk just include `*.c` and `*.h` files for bulding.
 
 There are the some files under **${LIBDASH_SOURCE}/libdash/qtsampleplayer**, such as libdashframework, and DASH manager. You can resue them if you need.
 
 ### Building shared library for Android
-1. Create makefiles, Android.mk and Application.mk for ndk buiding.
-    1. **Android.mk** only one line `include $(call all-subdir-makefiles)`. It means to find makefile for each subdirectory.
-    1. **Application.mk** defined two variables `APP_STL` and `APP_ABI`.
+1. Create makefiles, [Android.mk](./libdash/jni/Android.mk) and [Application.mk](./libdash/jni/Application.mk) for ndk buiding.
+    1. **[Android.mk](./libdash/jni/Android.mk)** only one line `include $(call all-subdir-makefiles)`. It means to find makefile for each subdirectory.
+    1. **[Application.mk](./libdash/jni/Application.mk)** defined two variables `APP_STL` and `APP_ABI`.
 1. Bulding by NDK tool.
 
     ````
@@ -93,5 +93,5 @@ There are the some files under **${LIBDASH_SOURCE}/libdash/qtsampleplayer**, suc
     After building, you will get the libdash.so.
     
 ### Examples for libcurl (Optional)
-I create a folder for testing, called **app**. After building, you will get two shared libraries (i.e., .so file), `libdash.so` and `libapp.so`.
-Reference to **${libdash_project}/jni/app/libdash_networkpart_test.cpp**
+I create a folder for testing, called **[app](./libdash/jni/app)**. After building, you will get two shared libraries (i.e., .so file), `libdash.so` and `libapp.so`.
+Reference to **${libdash_project}/jni/app/[libdash_networkpart_test.cpp](./libdash/jni/app/libdash_networkpart_test.cpp)**
