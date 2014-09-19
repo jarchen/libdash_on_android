@@ -1,13 +1,13 @@
 libdash on Android
 ==================
-This project is teaching how to port libdash, which is DASH clinet, to Android device.
-libdash is used libcurl and libxml2 for its dependent library, so we need to port libcurl and libxml2 on Android first.
+libdash is a library of DASH (Dynamic Adaptive Streaming over HTTP) client. libdash based on libcurl and libxml2 libraries.
+This project is going to give the instructions for poring libdash on android. But we need to port libcurl and libxml2 at first.
 
 ## Environment:
 * OS: Ubuntu 12.04 64-bit
 * NDK verion: r9d
 
-## Download Source Code
+## Source Code Downloading
 * libcurl download from [here](http://curl.haxx.se/download.html).
 * libxml2 download by git `git clone git://git.gnome.org/libxml2`.
 * libdash download by git `git clone git://github.com/bitmovin/libdash.git`.
@@ -15,7 +15,7 @@ libdash is used libcurl and libxml2 for its dependent library, so we need to por
 First, we create android project by Eclipse (Ex: **${libdash_project}**).
 Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
 
-### libcurl
+### libcurl configuration
 1. Set two environment variables **SYSROOT** and **CC**.
 
     ````
@@ -44,7 +44,7 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
         i.e.,`LOCAL_C_INCLUDES += $(LOCAL_PATH)/include/ $(LOCAL_PATH)/lib`.
     1. Change last line `include $(BUILD_EXECUTABLE)` to `include $(BUILD_STATIC_LIBRARY)`.
 
-### libxml2
+### libxml2 configuration
 1. Install tools for building libxml2
 
     ````
@@ -69,7 +69,7 @@ Create libcurl, libxml2, and libdash folders under **${libdash_project}/jni/**.
     ````
 1. Create [Android.mk](./libdash/jni/libxml2/Android.mk) for libxml2 under **${libdash_project}/jni/libxml2/**. This makefile very simple, just include all `*.c` and `*.h` files and build for **STATIC_LIBRARY**.
 
-### libdash
+### libdash configuration
 1. Copy files into **${libdash_project}/jni/libdash/**
 
     ````
